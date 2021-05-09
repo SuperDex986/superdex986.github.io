@@ -1,0 +1,19 @@
+<div id="icon-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+
+<head>
+      <title>ITS A WUMPUS</title>
+</head>
+
+<script>
+      var animation = bodymovin.loadAnimation({
+  // animationData: { /* ... */ },
+  container: document.getElementById('icon-container'), // required
+  path: './wumpus2.json', // required
+  renderer: 'svg', // required
+  loop: true, // optional
+  autoplay: true, // optional
+  name: "Demo Animation", // optional
+});
+</script>
