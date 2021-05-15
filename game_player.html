@@ -1,5 +1,12 @@
 <html>
   <head>
+        <style>
+        *.game-iframe {
+          height: calc(100vh - 95px) !important;
+          width: 100% !important;
+          height: 100% !important;
+        }
+        </style>
     <script>
       function getParameter( parameterName ){
         let parameters = new URLSearchParams( window.location.search );
@@ -8,26 +15,10 @@
       
       let value = getParameter( "game" )
       if(value === "Betrayal.io"){
-        <style>
-        *.game-iframe {
-          height: calc(100vh - 95px) !important;
-          width: 100% !important;
-          height: 100% !important;
-        }
-        </style>
-        
         <iframe class="game-iframe" src="https://betrayal.io/" frameborder="0"></iframe>
       }
       
         if(value === "Fishington.io"){
-        <style>
-        *.game-iframe {
-          height: calc(100vh - 95px) !important;
-          width: 100% !important;
-          height: 100% !important;
-        }
-        </style>
-        
         <iframe class="game-iframe" src="https://fishington.io" frameborder="0"></iframe>
       }
     </script>
