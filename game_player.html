@@ -2,7 +2,7 @@
   <head>
     <script>
       function getParameter( parameterName ){
-        let parameters = new URL.SearchParams( window.location.search );
+        let parameters = new URLSearchParams( window.location.search );
         return parameters.get( parameterName );
       }
     </script>
