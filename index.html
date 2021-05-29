@@ -67,35 +67,6 @@ return false;
 </style>
 </head>
 <body onload="myFunction()" style="margin:0; background-color:#5865F2;">
- <script>
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', function(event) {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e;
-    });
-
-    // Installation must be done by a user gesture! Here, the button click
-    btnAdd.addEventListener('click', (e) => {
-      // hide our user interface that shows our A2HS button
-      btnAdd.style.display = 'none';
-      // Show the prompt
-      deferredPrompt.prompt();
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice
-        .then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the A2HS prompt');
-          } else {
-            console.log('User dismissed the A2HS prompt');
-          }
-          deferredPrompt = null;
-        });
-    });
-
-    </script>
 
 <div id="loader"></div>
 
@@ -112,12 +83,9 @@ return false;
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick="DiscordBtnRedirect()">
   Discord Server
 </button>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick="GuildedBtnRedirect()">
-  Guilded Server
-</button>
 	  
 	      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick="testhaha()">
-  Activities Bot Advaith
+  Sung's Activities
 </button>
     
     <script>
@@ -137,16 +105,10 @@ return false;
           document.location.href="discord.html";
           }
     </script>
-    
-    <script>
-          function GuildedBtnRedirect(){
-          document.location.href="guilded.html";
-          }
-    </script>
 
     <script>
 	  function testhaha(){
-	  let ws = new WebSocket("ws://127.0.0.1:6463/?v=1&client_id=819778342818414632&scope=bot%20applications.commands");
+	  window.location.replace('https://discord.com/oauth2/authorize?client_id=846012285428170792&permissions=3149312&scope=bot%20applications.commands')
 	  }
     </script>
     <hr />
