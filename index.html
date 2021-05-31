@@ -23,17 +23,19 @@ return false;
 </script>
 <script>
   // Initialize deferredPrompt for use later to show browser install prompt.
-let deferredPrompt;
+var isTooSoon = true;
+window.addEventListener("beforeinstallprompt", function(e) {
+  if (isTooSoon) {
+    e.preventDefault(); // Prevents prompt display
+    // Prompt later instead:
+    setTimeout(function() {
+      isTooSoon = false;
+      e.prompt(); // Throws if called more than once or default not prevented
+    }, 10000);
+  }
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI notify the user they can install the PWA
-  showInstallPromotion();
-  // Optionally, send analytics event that PWA install promo was shown.
-  console.log(`'beforeinstallprompt' event was fired.`);
+  // The event was re-dispatched in response to our request
+  // ...
 });
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
