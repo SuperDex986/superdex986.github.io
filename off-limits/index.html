@@ -1,126 +1,149 @@
 <html>
   <head>
     <style>
-      @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono|Montserrat:700");
+      @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
 
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    box-sizing: border-box;
-    color: inherit;
+$dark-grey: #111111;
+$lighter-grey: #27292d;
+$yellow: #e2bb2d;
+$yellow2: #B79A2F;
+
+html { 
+  height: 100%;
 }
 
 body {
-    background-image: linear-gradient(120deg, #4f0088 0%, #000000 100%);
-    height: 100vh;
+  min-height: 100%;
+  background-color:$dark-grey;
+  font-family: "Roboto Condensed";
+  text-transform: uppercase;
+  overflow: hidden;  
 }
 
-h1 {
-    font-size: 45vw;
-    text-align: center;
-    position: fixed;
-    width: 100vw;
-    z-index: 1;
-    color: #ffffff26;
-    text-shadow: 0 0 50px rgba(0, 0, 0, 0.07);
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: "Montserrat", monospace;
+.police-tape {
+  background-color: $yellow;
+  background: linear-gradient(180deg, lighten($yellow, 20%) 0%, $yellow 5%, $yellow 90%, lighten($yellow, 5%) 95%, darken($yellow, 50%) 100%);
+  padding: 0.125em;
+  font-size: 3em;
+  text-align: center;
+  white-space: nowrap;
 }
 
-div {
-    background: rgba(0, 0, 0, 0);
-    width: 70vw;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0 auto;
-    padding: 30px 30px 10px;
-    box-shadow: 0 0 150px -20px rgba(0, 0, 0, 0.5);
-    z-index: 3;
+.police-tape--1 {
+  transform: rotate(10deg);
+  position: absolute;
+  top: 40%;
+  left: -5%;
+  right: -5%;
+  z-index: 2;
+  margin-top: 0;
+}
+.police-tape--2 {
+  transform: rotate(-8deg);
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  right: -5%;
 }
 
-P {
-    font-family: "Share Tech Mono", monospace;
-    color: #f5f5f5;
-    margin: 0 0 20px;
-    font-size: 17px;
-    line-height: 1.2;
+.ghost {
+  display: flex;
+  justify-content: stretch;
+  flex-direction: column;
+  height: 100vh;
+}
+.ghost--columns {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 200px;
+  align-content: stretch;
 }
 
-span {
-    color: #f0c674;
+.ghost--navbar {
+  flex: 0 0 60px;
+  background: linear-gradient(0deg, $lighter-grey 0px, $lighter-grey 10px, transparent 10px);
+  border-bottom: 2px solid $dark-grey;
 }
-
-i {
-    color: #8abeb7;
-}
-
-div a {
-    text-decoration: none;
-}
-
-b {
-    color: #81a2be;
-}
-
-a.avatar {
-    position: fixed;
-    bottom: 15px;
-    right: -100px;
-    animation: slide 0.5s 4.5s forwards;
-    display: block;
-    z-index: 4
-}
-
-a.avatar img {
-    border-radius: 100%;
-    width: 44px;
-    border: 2px solid white;
-}
-
-@keyframes slide {
-    from {
-        right: -100px;
-        transform: rotate(360deg);
-        opacity: 0;
+.ghost--column {
+  flex: 1 0 30%;
+  border-width: 0px;
+  border-style: solid;
+  border-color: $lighter-grey;
+  border-left-width: 10px;
+  background-color: darken($lighter-grey, 6%);
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {      
+      .code {
+        @for $j from 1 through 4 {
+          &:nth-child(#{$j}) {
+            // $rotation: (5 - random(10)) + deg;
+            // transform: translateY(0px) rotate($rotation);      
+            $spacing: (random(9) / 2) + 1em;
+            margin-left: $spacing;
+          }
+        }
+      }
     }
-    to {
-        right: 15px;
-        transform: rotate(0deg);
-        opacity: 1;
-    }
+  }
+}
+.ghost--main {
+  background-color: $dark-grey;
+  border-top: 15px solid lighten($lighter-grey, 4%);
+  flex: 1 0 100px;
+}
+
+.code {
+  display: block;
+  width: 100px;
+  background-color: $lighter-grey;
+  height: 1em;
+  margin: 1em;
+  
+}
+.ghost--main .code {
+  height: 2em;
+  width: 200px;
 }
 
     </style>
   </head>
-  <body>
-    <script>
-      var str = document.getElementsByTagName('div')[0].innerHTML.toString();
-var i = 0;
-document.getElementsByTagName('div')[0].innerHTML = "";
+  <div class="ghost">
+  
+<div class="ghost--navbar"></div>
+  <div class="ghost--columns">
+    <div class="ghost--column">
+      <div class="code"></div>
+      <div class="code"></div>
+      <div class="code"></div>
+      <div class="code"></div>
+    </div>
+    <div class="ghost--column">
+      <div class="code"></div>
+      <div class="code"></div>
+      <div class="code"></div>
+      <div class="code"></div>
+    </div>
+    <div class="ghost--column">
+      <div class="code"></div>
+      <div class="code"></div>
+      <div class="code"></div>
+      <div class="code"></div>
+    </div>
+    
+  </div>
+  <div class="ghost--main">
+    <div class="code"></div>
+    <div class="code"></div>
 
-setTimeout(function() {
-    var se = setInterval(function() {
-        i++;
-        document.getElementsByTagName('div')[0].innerHTML = str.slice(0, i) + "|";
-        if (i == str.length) {
-            clearInterval(se);
-            document.getElementsByTagName('div')[0].innerHTML = str;
-        }
-    }, 10);
-},0);
+  </div>
 
-    </script>
-    <h1>403</h1>
-   <div><p>> <span>ERROR CODE</span>: "<i>HTTP 403 Forbidden</i>"</p>
-   <p>> <span>ERROR DESCRIPTION</span>: "<i>Access Denied. You Do Not Have The Permission To Access This Page On This Server</i>"</p>
-   <p>> <span>ERROR POSSIBLY CAUSED BY</span>: [<b>execute access forbidden, read access forbidden, write access forbidden, ssl required, ssl 128 required, ip address rejected, client certificate required, site access denied, too many users, invalid configuration, password change, mapper denied access, client certificate revoked, directory listing denied, client access licenses exceeded, client certificate is untrusted or invalid, client certificate has expired or is not yet valid, passport logon failed, source access denied, infinite depth is denied, too many requests from the same client ip</b>...]</p>
-   <p>> <span>SOME PAGES ON THIS SERVER THAT YOU DO HAVE PERMISSION TO ACCESS</span>: [<a href="https://superdex986.github.io/">Home Page</a>, <a href="https://superdex986.github.io/wumpus_floss.html">Wumpus Dancing</a>, <a href="https://superdex986.github.io/wumpus_reading.html">Wumpus Reading</a>, <a href="https://superdex986.github.io/site_storage/cdn1/fart_with_extra_reverb.mp3">Uh 😳</a>...]</p><p>> <span>HAVE A NICE DAY SUSSY GAMER :-) 😳</span></p>
-   </div>
+</div>
+
+<h1 class="police-tape police-tape--1">
+  &nbsp;&nbsp;&nbsp;&nbsp;Error: 403&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error: 403&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error: 403&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error: 403&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error: 403&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error: 403&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error: 403
+</h1>
+<h1 class="police-tape police-tape--2">Forbidden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forbidden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forbidden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forbidden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forbidden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forbidden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+
+
   </body>
 </html>
