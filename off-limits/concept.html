@@ -31,6 +31,9 @@ h1 {
 
 <h1>App Leaks</h1>
 <h2>1. Microsoft Defender Preview! Not much info about it. <button onClick="WindowsDefenderPrevFunction()">View In Store</button></h2>
+  
+<h1>Social Links</h1>
+<h2>Looking for them? <button onclick="SocialLinks()">Click Here</button></h2>
 </center>
 
 <script>
@@ -44,6 +47,10 @@ h1 {
   
   function WindowsDefenderPrevFunction() {
    window.location.replace("ms-windows-store://pdp/?productid=9P6PMZTM93LR&mode=mini");
+  }
+  
+    function SocialLinks() {
+   var win = window.open("https://superdex986.github.io/off-limits/concept-social-links", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=900,height=900,top="+(screen.height-400)+",left="+(screen.width-840));
   }
 </script>
 </body>
