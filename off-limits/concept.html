@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dex's Site - Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<style>
+body {
+  background-image: url('https://superdex986.github.io/static/images/normal/SiteBG.png');
+  font-family: 'Raleway', sans-serif;
+}
 
+body {
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<center>
+<h1>Hello, welcome to my website.</h1>
+<p>There is different categories: Games, Leaks and more! Please note: This website is a new replacement for the old interface, and it might have bugs.</p>
+<h1>Games</h1>
+<h2>1. Minecraft (PC)! You can download it from 'minecraft.net/download', or get it by clicking <button onClick="MCstoreFunction()">here!</button></h2>
+<h3>Not Working? Click <button onClick="Minecraft1011Function()">here!</button> (Windows 10/11 Only)</h3>
+
+<h1>App Leaks</h1>
+<h2>1. Microsoft Defender Preview! Not much info about it. <button onClick="WindowsDefenderPrevFunction()">View In Store</button></h2>
+</center>
+
+<script>
+  function MCstoreFunction() {
+    window.location.replace("ms-windows-store://pdp/?productid=9PGW18NPBZV5&mode=mini");
+  }
+  
+  function Minecraft1011Function() {
+   window.location.replace("https://launcher.mojang.com/download/MinecraftInstaller.exe");
+  }
+  
+  function WindowsDefenderPrevFunction() {
+   window.location.replace("ms-windows-store://pdp/?productid=9P6PMZTM93LR&mode=mini");
+  }
+</script>
+</body>
+</html>
