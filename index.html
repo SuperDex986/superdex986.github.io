@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dex's Site</title>
+<title>Dex's Site</title>
+<script type="text/javascript">
+function InfoWhatHappened() {
+  alert('The main page is still in the works and will come, but dont expect it to be soon.');
+}
+window.onload = InfoWhatHappened;
+</script>
 </head>
-	<Center>
-		<h1>Hey!</h1>
-		The page will be back soon, but im not always working on this site, so don't expect it to be soon.
-		
-		<button onClick = "ConceptWindow()">See My Progress Here</button>
-		
-		<script>
-		  function ConceptWindow() {
-		      window.location.replace("https://superdex986.github.io/off-limits/concept")
-		  }
-		</script>
 <body>
+<center>
+
+<h2>Dex's Site</h2>
+
+
+<button onclick="ConceptPage()">Concept Page</button>
+
+<p id="output"></p>
+</center>
+
+<script>
+function ConceptPage() {
+  var txt;
+  if (confirm("Would you like to be taken to the concept page? Click OK To Continue.")) {
+    window.open("https://superdex986.github.io/off-limits/concept");
+    txt = "Success. If nothing opened, allow popups.";
+  } else {
+    txt = "Cancelled.";
+  }
+  document.getElementById("output").innerHTML = txt;
+}
+</script>
 
 </body>
 </html>
