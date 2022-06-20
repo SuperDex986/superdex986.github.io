@@ -24,9 +24,6 @@
 			<source src="https://web.archive.org/web/20180228025751im_/https://breadfish.nl/src/breadfish.mp4" type="video/mp4">
 			<source src="https://web.archive.org/web/20180228025751im_/https://breadfish.nl/src/breadfish.ogg" type="video/ogg">
 		</video>
-	<script>
-    document.getElementById('player').play();
-</script>
 		<div id="footer">
     			<div id="footer-left">
 			[ <a href="https://superdex986.github.io/">Home</a> ]
@@ -35,7 +32,14 @@
     			</div>
     			<div id="footer-right">
         		<div id="helptext">
-            		[ make sure to allow autoplay! ]
+                <button>Play</button>
+                [Videos on html are complicated...]
+
+<script>
+    document.querySelector('button').addEventListener('click', () => {
+        document.querySelector('video').play();
+    });
+</script>
         		</div>
 
 			</div>
