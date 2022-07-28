@@ -25,7 +25,7 @@ window.onload = InfoWhatHappened;
 function ConceptPage() {
   var txt;
   if (confirm("Would you like to be taken to the concept page? Click OK To Continue.")) {
-    window.open("https://superdex986.github.io/off-limits/concept");
+    window.location.replace("https://superdex986.github.io/static/warningPages/redirectToWarning?warn_page=concept-home-page");
     txt = "Success. If nothing opened, allow popups.";
   } else {
     txt = "Cancelled.";
